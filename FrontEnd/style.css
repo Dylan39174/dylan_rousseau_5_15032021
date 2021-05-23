@@ -5,6 +5,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Merienda', cursive;
+  background-color: #f0efef;
 }
 
 header {
@@ -14,6 +15,7 @@ header {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  border-bottom: 2px solid grey;
 }
 
 header img {
@@ -31,6 +33,11 @@ header nav ul {
   height: 100%;
   margin: 0;
   padding: 0;
+}
+
+header nav ul a {
+  color: black;
+  text-decoration: none;
 }
 
 header nav ul li {
@@ -52,5 +59,157 @@ header nav ul li {
 header nav ul li:hover {
   background-color: #dad0d0;
   border: 2px solid black;
+}
+
+.produits {
+  position: relative;
+  max-width: 1200px;
+  width: 90%;
+  height: auto;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.produits h3, .produits span {
+  padding-left: 20px;
+}
+
+.produits ul {
+  margin: 0;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.produits ul li {
+  position: relative;
+  list-style-type: none;
+  margin: 0 40px 40px 0;
+  padding: 0;
+  width: 300px;
+  height: 300px;
+  cursor: pointer;
+  border: 2px solid #8b7e7e;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.produits ul li picture {
+  position: relative;
+}
+
+.produits ul li picture img {
+  position: relative;
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+
+.element {
+  position: relative;
+  width: 80%;
+  height: 500px;
+  margin: 30px auto auto auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 100px;
+  border: 1px solid grey;
+  border-radius: 10px;
+}
+
+.element picture {
+  position: relative;
+  width: 50%;
+}
+
+.element picture img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10px;
+}
+
+.element .description {
+  position: relative;
+  width: 50%;
+  height: 100%;
+}
+
+.element .description p, .element .description h4, .element .description span, .element .description .howmuch {
+  margin: 0 0 0 30px;
+}
+
+.element .description h4 {
+  margin-top: 30px;
+}
+
+.element .description .howmuch {
+  width: 50px;
+  height: 20px;
+  margin-top: 10px;
+  font-size: 1em;
+  padding-left: 10px;
+  font-family: 'Merienda', cursive;
+}
+
+.element .description .zone-tarif {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 60px;
+}
+
+.element .description .zone-tarif .tarif-total {
+  width: 100px;
+}
+
+.element .description .zone-tarif .tarif-total h4, .element .description .zone-tarif .tarif-total span {
+  margin: 0;
+}
+
+.element .description .bouton {
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  margin: 0 10px 0 30px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: #e6d5d5;
+  border: 1px solid grey;
+  cursor: pointer;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.element .description .bouton:hover {
+  background-color: #f5c6c6;
+  border: 1px solid black;
+}
+
+.element .description .bouton span {
+  margin: 0;
+  padding: 0;
 }
 /*# sourceMappingURL=style.css.map */

@@ -6,12 +6,14 @@ body{
     margin: 0;
     padding: 0;
     font-family: 'Merienda', cursive;
+    background-color: rgb(240, 239, 239);
 }
 
 header{
     background-color: #f3e9f1;
     display: flex;
     justify-content: space-around;
+    border-bottom: 2px solid grey;
     img{
         width: 250px;
     }
@@ -26,6 +28,11 @@ header{
             height: 100%;
             margin: 0;
             padding: 0;
+
+            a{
+                color: black;
+                text-decoration: none;
+            }
             
             li{
                 width: auto;
@@ -51,4 +58,144 @@ header{
     }
 
 
+}
+
+.produits{
+    position: relative;
+    max-width: 1200px;
+    width: 90%;
+    height: auto;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    
+
+    h3, span{
+        padding-left: 20px;
+    }
+
+    ul{
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        li{
+            position: relative;
+            list-style-type: none;
+            margin: 0 40px 40px 0;
+            padding: 0;
+            width: 300px;
+            height: 300px;
+            cursor: pointer;
+            border: 2px solid rgb(139, 126, 126);
+            border-radius: 10px;
+            background-color: white;
+
+            picture{
+                position: relative;
+
+                img{
+                    position: relative;
+                    width: 100%;
+                    height: auto;
+                    object-fit: cover;
+                    border-top-left-radius: 7px;
+                    border-top-right-radius: 7px;
+                }
+            }
+        }
+    }
+}
+
+.element{
+    position: relative;
+    width: 80%;
+    height: 500px;
+    margin: 30px auto auto auto;
+    display: flex;
+    margin-top: 100px;
+    border: 1px solid grey;
+    border-radius: 10px;
+
+    picture{
+        position: relative;
+        width: 50%;
+
+        img{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+    }
+
+    .description{
+        position: relative;
+        width: 50%;
+        height: 100%;
+
+        p, h4, span, .howmuch {
+            margin: 0 0 0 30px;
+        }
+        
+        h4 {
+            margin-top: 30px;
+        }
+
+        .howmuch{
+            width: 50px;
+            height: 20px;
+            margin-top: 10px;
+            font-size: 1em;
+            padding-left: 10px;
+            font-family: 'Merienda', cursive;
+        }
+
+        .zone-tarif{
+            display: flex;
+            text-align: center;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 60px;
+
+            .tarif-total{
+
+                width: 100px;
+
+
+                h4, span{
+                    margin: 0;
+                }
+
+            }
+        }
+
+        .bouton{
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+            margin: 0 10px 0 30px;
+            border-radius: 20px;
+            text-align: center;
+            background-color: rgb(230, 213, 213);
+            border: 1px solid grey;
+            cursor: pointer;
+            transition: .5s;
+
+            &:hover{
+                background-color: #f5c6c6;
+                border: 1px solid black;
+            }
+
+            span{
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
 }

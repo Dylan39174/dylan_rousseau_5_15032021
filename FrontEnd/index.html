@@ -12,18 +12,44 @@
     <body>
         <header>
             <picture>
-                <img src="img/orinoco.png" alt="logo d'orinoco">
+                <a href="index.html"><img src="img/orinoco.png" alt="logo d'orinoco"></a>
             </picture>
             <nav>
                 <ul>
-                    <li>Accueil</li>
+                    <a href="index.html"><li>Accueil</li></a>
                     <li>Mon pannier</li>
                 </ul>
             </nav>
         </header>
-        <script>
-            let url = 'http://localhost:3000/api/cameras';
-            fetch(url).then(response => response.json().then(data => {console.log(data)}));
-        </script>
+        <div class="produits">
+            <ul id="items">
+
+            </ul>
+            <!-- <picture>
+                <img src="http://localhost:3000/images/vcam_1.jpg" alt="">
+            </picture>
+            <div class="description">
+                <h4>Nom de l'appareil:</h4>
+                <span>Zurss 50S</span>
+                <h4>Description:</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <h4>Prix:</h4>
+                <span>499€</span>
+                <h4>Quantitée:</h4>
+                <input type="number" name="howmuch" min="0" class="howmuch">
+                <div class="zone-tarif">
+                    <div class="tarif-total">
+                        <h4>Total:</h4>
+                        <span>0€</span>
+                    </div>
+                    <div class="bouton">
+                        <span>Ajouter au pannier</span>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+
+        <script src="app.js"></script>
+
 </body>
 </html>
