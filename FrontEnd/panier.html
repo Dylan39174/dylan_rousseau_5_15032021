@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Orinoco | Mon panier</title>
+</head>
+<body>
+  <header>
+    <picture>
+        <a href="index.html"><img src="img/orinoco.png" alt="logo d'orinoco"></a>
+    </picture>
+    <nav>
+        <ul class="nav">
+            <a href="index.html"><li>Accueil</li></a>
+            <a href="panier.html"><li class="active">Mon panier</li></a>
+        </ul>
+    </nav>
+  </header>
+  <h1>Mon panier</h1>
+  <div class="produits_panier">
+    <ul id="liste_produit_panier">
+
+    </ul>
+    <form id="form" method="POST">
+      <input type="text" name="firstname" placeholder="Prénom" autocomplete="off" required pattern="[a-z-\s]+"><br>
+      <input type="text" name="lastname" placeholder="Nom" autocomplete="off" required pattern="[a-z-\s]+"><br>
+      <input type="text" name="adress" placeholder="Adresse" autocomplete="off" required pattern="[a-zA-Z0-9-\s]+"><br>
+      <input type="text" name="city" placeholder="Ville" autocomplete="off" required  pattern="[a-z-]+"><br>
+      <input id="mail" type="email" name="email" placeholder="Adresse mail" autocomplete="off" required>
+      <div class="validation">
+        <button type="submit">Passer la commande</button>
+      </div>
+
+    </form>
+    
+  </div>
+  <div class="test" onclick="remplir()">
+    <span>remplir le formulaire</span>
+  </div>
+  
+  <script src="function.js"></script>
+  <script src="app.js"></script>
+  <script src="panier.js"></script>
+</body>
+</html>

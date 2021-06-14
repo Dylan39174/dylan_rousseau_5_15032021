@@ -6,8 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
         <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
-        <link href="functions.js">
-        <title>Orinoco</title>
+        <title>Orinoco | Accueil</title>
     </head>
     <body>
         <header>
@@ -15,41 +14,20 @@
                 <a href="index.html"><img src="img/orinoco.png" alt="logo d'orinoco"></a>
             </picture>
             <nav>
-                <ul>
-                    <a href="index.html"><li>Accueil</li></a>
-                    <li>Mon pannier</li>
+                <ul class="nav">
+                    <a href="index.html"><li class="active">Accueil</li></a>
+                    <a href="panier.html"><li>Mon panier</li></a>
                 </ul>
             </nav>
         </header>
+        <h1>Nos produits</h1>
         <div class="produits">
             <ul id="items">
-
+                
             </ul>
-            <!-- <picture>
-                <img src="http://localhost:3000/images/vcam_1.jpg" alt="">
-            </picture>
-            <div class="description">
-                <h4>Nom de l'appareil:</h4>
-                <span>Zurss 50S</span>
-                <h4>Description:</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <h4>Prix:</h4>
-                <span>499€</span>
-                <h4>Quantitée:</h4>
-                <input type="number" name="howmuch" min="0" class="howmuch">
-                <div class="zone-tarif">
-                    <div class="tarif-total">
-                        <h4>Total:</h4>
-                        <span>0€</span>
-                    </div>
-                    <div class="bouton">
-                        <span>Ajouter au pannier</span>
-                    </div>
-                </div>
-            </div> -->
         </div>
 
+        <script src="function.js"></script>
         <script src="app.js"></script>
-
-</body>
+    </body>
 </html>

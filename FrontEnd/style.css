@@ -5,7 +5,6 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Merienda', cursive;
-  background-color: #f0efef;
 }
 
 header {
@@ -40,6 +39,11 @@ header nav ul a {
   text-decoration: none;
 }
 
+header nav ul .active {
+  border-color: black;
+  background-color: #dbebea;
+}
+
 header nav ul li {
   width: auto;
   height: auto;
@@ -61,12 +65,36 @@ header nav ul li:hover {
   border: 2px solid black;
 }
 
+header nav ul .nb_panier {
+  position: relative;
+  top: -30px;
+  left: -35px;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  line-height: 20px;
+  border-radius: 30px;
+  color: red;
+  border: 2px solid red;
+  text-align: center;
+  background-color: #fff !important;
+}
+
+header nav ul .nb_panier:hover {
+  border-color: red;
+}
+
+h1 {
+  text-align: center;
+}
+
 .produits {
   position: relative;
   max-width: 1200px;
   width: 90%;
   height: auto;
-  margin: 50px auto;
+  margin: auto;
   padding: 20px;
   border: 1px solid grey;
   border-radius: 5px;
@@ -79,7 +107,7 @@ header nav ul li:hover {
 
 .produits ul {
   margin: 0;
-  padding: 20px;
+  padding: 20px 20px 0px 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -101,6 +129,14 @@ header nav ul li:hover {
   border: 2px solid #8b7e7e;
   border-radius: 10px;
   background-color: white;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.produits ul li:hover {
+  border-color: black;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .produits ul li picture {
@@ -120,12 +156,11 @@ header nav ul li:hover {
 .element {
   position: relative;
   width: 80%;
-  height: 500px;
-  margin: 30px auto auto auto;
+  height: 550px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-top: 100px;
+  margin: auto;
   border: 1px solid grey;
   border-radius: 10px;
 }
@@ -141,7 +176,8 @@ header nav ul li:hover {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  border-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .element .description {
@@ -156,6 +192,15 @@ header nav ul li:hover {
 
 .element .description h4 {
   margin-top: 30px;
+}
+
+.element .description select {
+  width: 150px;
+  height: 30px;
+  margin-left: 30px;
+  font-family: 'Merienda', cursive;
+  font-size: 1em;
+  cursor: pointer;
 }
 
 .element .description .howmuch {
@@ -178,11 +223,17 @@ header nav ul li:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 60px;
+  margin-top: 26px;
+  height: 100px;
+  border-bottom-right-radius: 10px;
+  border: 1px solid grey;
+  background-color: #f3e9f1;
 }
 
 .element .description .zone-tarif .tarif-total {
   width: 100px;
+  text-align: left;
+  margin-left: 30px;
 }
 
 .element .description .zone-tarif .tarif-total h4, .element .description .zone-tarif .tarif-total span {
@@ -211,5 +262,191 @@ header nav ul li:hover {
 .element .description .bouton span {
   margin: 0;
   padding: 0;
+}
+
+.produits_panier {
+  position: relative;
+  width: 80%;
+  height: auto;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.produits_panier ul {
+  margin: 0;
+  padding: 0;
+}
+
+.produits_panier ul li {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 10px;
+  border: 1px solid grey;
+  margin-bottom: 20px;
+}
+
+.produits_panier ul li picture {
+  position: relative;
+  width: 20%;
+  height: 100%;
+}
+
+.produits_panier ul li picture img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10px;
+}
+
+.produits_panier ul li .critere {
+  position: relative;
+  width: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  border-right: 2px solid black;
+}
+
+.produits_panier ul li .critere .sous_cat h4, .produits_panier ul li .critere .sous_cat span {
+  font-size: 20px;
+}
+
+.produits_panier ul li .zone_total {
+  position: relative;
+  width: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-right: 2px solid black;
+}
+
+.produits_panier ul li .zone_total h4, .produits_panier ul li .zone_total span {
+  font-size: 20px;
+}
+
+.produits_panier ul li .croix {
+  position: relative;
+  width: 10%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.produits_panier ul li .croix span {
+  text-transform: uppercase;
+  color: red;
+  font-weight: bold;
+  font-family: sans-serif;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  border-radius: 30px;
+  text-align: center;
+  border: 2px solid red;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.produits_panier form {
+  background-color: #f3e9f1;
+  margin-top: 40px;
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 0px 20px 20px 0px;
+}
+
+.produits_panier form input {
+  position: relative;
+  width: 500px;
+  height: 40px;
+  margin: 0px 0px 20px 100px;
+  font-size: 20px;
+  padding-left: 20px;
+  text-transform: capitalize;
+  outline: none;
+}
+
+.produits_panier form input:focus:invalid {
+  border: 1px solid red;
+}
+
+.produits_panier form input:valid {
+  border: 1px solid green;
+}
+
+.produits_panier form input:first-of-type {
+  margin-top: 20px;
+}
+
+.produits_panier form input:last-of-type {
+  text-transform: none;
+}
+
+.validation {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  text-align: right;
+}
+
+.validation button {
+  padding: 10px 10px;
+  border-radius: 10px;
+  font-size: 20px;
+  color: #4e2f2f;
+  cursor: pointer;
+  background-color: #a2f88d;
+  border: 2px solid grey;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.validation button:hover {
+  border: 2px solid black;
+  color: black;
+}
+
+.test {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 25px;
+}
+
+.test span {
+  padding: 10px 15px 10px 15px;
+  border: 2px solid grey;
+  border-radius: 30px;
+  background-color: #f3b2b2;
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */
