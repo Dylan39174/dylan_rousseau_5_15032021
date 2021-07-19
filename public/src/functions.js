@@ -24,21 +24,19 @@ function add_product(){
   var lense = document.querySelector('.lense').value;
   var quant = parseInt(document.querySelector('.howmuch').value);
 
-  const produit = new Item (id, name, image_url, tarif, lense, quant);
-
+  var produit = new Item (id, name, image_url, tarif, lense, quant);
+  console.log(produit.lense);
   if(localStorage.length === 0){
-      localStorage.setItem(id, JSON.stringify(produit));
-  }else{
-      if(localStorage.getItem(id) == null){
-          localStorage.setItem(id, JSON.stringify(produit));
-      }else{
-
-          var mon_tableau = JSON.parse(localStorage.getItem(id));
-          if (mon_tableau.lense = produit.lense){
-            quant = mon_tableau.quant += parseInt(document.querySelector('.howmuch').value);
-            const produit = new Item (id, name, image_url, tarif, lense, quant);
-            localStorage.setItem(id, JSON.stringify(produit));
-          }
+      localStorage.setItem(id + '-' + produit.lense, JSON.stringify(produit));
+  }else{ 
+      if(localStorage.getItem(id + '-' + produit.lense) == null){ 
+          localStorage.setItem(id + '-' + produit.lense, JSON.stringify(produit));
+      }else{ 
+          console.log(produit.lense);
+          var mon_tableau = JSON.parse(localStorage.getItem(id + '-' + produit.lense));
+          quant = mon_tableau.quant += produit.quant;
+          var produit = new Item (id, name, image_url, tarif, lense, quant);
+          localStorage.setItem(id + '-' + produit.lense, JSON.stringify(produit));
           
       }
     }
@@ -97,10 +95,10 @@ function calcul_total(products){
   for(i = 0 ; i < products.length ; i++){
     somme += products[i].price / 100 ;
   }
-  return somme;
+  return somme.toLocaleString();
 }
 
-function nombre_itteration(){
+function nombre_itteration(){ 
   let x = 0;
   for (i = 0; i < localStorage.length ; i++){
 

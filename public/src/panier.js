@@ -5,6 +5,7 @@ var somme_produit = 0;
 if (localStorage.length === 0 ){
   document.getElementById('liste_produit_panier').remove();
   document.querySelector('h1').innerHTML = 'Votre panier est vide !';
+  document.querySelector('.produits_panier').remove();
 }
 if (localStorage.length != 0){
   for(i = localStorage.length -= 1 ; i >= 0 ; i--){
@@ -128,24 +129,23 @@ document.querySelector('.bouton').addEventListener('click', function(){
 
   const contact = new Contact (inputs["firstname"].value, inputs["lastname"].value, inputs["adress"].value, inputs["city"].value, inputs["email"].value);
   var products = [];
-  var x = nombre_itteration(); // Fonction qui retourne le nombre de produits total (x);
-  //  Création boucle
-  var y = 0; // La variable y représente le nombre de produits stockés dans le localStorage;
-  var z = 0; // La variable z représente la taille du tableau products;
-  while ( x != 0){ 
+  var nb_produit_total = nombre_itteration(); // Fonction qui retourne le nombre de produits total (x);
+  
+  var nb_references_LocalStorage = 0; 
+  var position_tableau = 0; 
+
+  while ( nb_produit_total != 0){ 
     
-    var product = localStorage.getItem(localStorage.key(y));
+    var product = localStorage.getItem(localStorage.key(nb_references_LocalStorage));
     product = JSON.parse(product);
 
     for( i = 0 ; i < product.quant ; i++){
-      products[z] = product.id;
-      z++;
-      x--;
+      products[position_tableau] = product.id;
+      position_tableau++;
+      nb_produit_total--;
     }
-    y++;
+    nb_references_LocalStorage++;
   }
-
-  //  Fin de la boucle
   
   const objet = new obj (contact, products);
   localStorage.setItem('objet', JSON.stringify(objet));

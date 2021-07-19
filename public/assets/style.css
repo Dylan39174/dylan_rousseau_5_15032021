@@ -5,6 +5,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Merienda', cursive;
+  background: #d8d8ae;
 }
 
 header {
@@ -87,6 +88,7 @@ header nav ul .nb_panier:hover {
 
 h1 {
   text-align: center;
+  color: #5e3869;
 }
 
 .produits {
@@ -97,8 +99,8 @@ h1 {
   margin: auto;
   padding: 20px;
   border: 1px solid grey;
-  border-radius: 5px;
-  background-color: white;
+  border-radius: 5%;
+  background-color: #f3e9f1;
 }
 
 .produits h3, .produits span {
@@ -140,8 +142,8 @@ h1 {
 
 .produits ul li:hover {
   border-color: black;
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 .produits ul li picture {
@@ -150,7 +152,7 @@ h1 {
 
 .produits ul li picture img {
   position: relative;
-  width: 100%;
+  width: 100.5%;
   height: 65%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -168,6 +170,7 @@ h1 {
   margin: auto;
   border: 1px solid grey;
   border-radius: 10px;
+  background-color: #f3e9f1;
 }
 
 .element picture {
@@ -232,7 +235,7 @@ h1 {
   height: 100px;
   border-bottom-right-radius: 10px;
   border: 1px solid grey;
-  background-color: #f3e9f1;
+  background-color: #fff;
 }
 
 .element .description .zone-tarif .tarif-total {
