@@ -21,7 +21,6 @@ fetch(url + '/' + localStorage.getItem('selection_product'))
 
       }
       document.querySelector('.howmuch').setAttribute('onchange', 'calculations_price(' + data.price + ')');
-
       localStorage.removeItem('selection_product');
 
   })

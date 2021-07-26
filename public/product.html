@@ -5,18 +5,26 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./assets/style.css">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
   <link rel="shortcut icon" href="./img/logo_orinoco.png" type="image/x-icon">
   <title>Orinoco | Détails du produit</title>
 </head>
 <body>
   <header>
-    <picture>
-        <a href="index.html"><img src="img/orinoco.png" alt="logo d'orinoco"></a>
-    </picture>
+    <a class="lien-accueil" href="index.html">
+        <picture>
+            <source class="petit-logo" media="(max-width:650px)" srcset="img/logo_orinoco.png"> 
+            <img src="img/orinoco.png" alt="logo Orinoco">
+        </picture>
+    </a>
+    <div class="menu-small">
+        <a href="index.html"><i class="fa fa-house-flood"></i></a>
+        <a href="panier.html"><i class="fas fa-shopping-cart"></i></a>
+    </div>
     <nav>
         <ul class="nav">
-            <a href="index.html"><li class="active">Accueil</li></a>
-            <a href="panier.html"><li>Mon panier</li></a>
+            <a href="index.html"><li class="header-li active">Accueil</li></a>
+            <a href="panier.html"><li class="header-li panier">Mon panier</li></a>
         </ul>
     </nav>
 </header>
@@ -26,18 +34,24 @@
       <img class="img">
     </picture>
     <div class="description">
-      <h4>Nom de l'appareil:</h4>
-      <span class="nom"></span>
-      <h4>Description</h4>
-      <p class="desc"></p>
-      <h4>Prix:</h4>
-      <span class="tarif_depart"></span>
-      <h4>Lense:</h4>
-      <select class="lense">
-
-      </select>
-      <h4>Quantitée:</h4>
-      <input type="number" name="howmuch" class="howmuch" min="0" value="0">
+      <div class="zone_description">
+        <h4>Nom de l'appareil:</h4>
+        <span class="nom"></span>
+        <h4>Description</h4>
+        <p class="desc"></p>
+        <h4>Prix:</h4>
+        <span class="tarif_depart"></span>
+        <div class="lense_quant">
+          <div class="zone_lense">
+            <h4>Lense:</h4>
+            <select class="lense"></select>
+          </div>
+          <div class="zone_quant">
+            <h4>Quantitée:</h4>
+            <input type="number" name="howmuch" class="howmuch" min="0" value="0">
+          </div>
+        </div>
+      </div>
       <div class="zone-tarif">
         <div class="tarif-total">
           <h4>Total:</h4>

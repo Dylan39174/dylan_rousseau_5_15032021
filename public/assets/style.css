@@ -5,7 +5,19 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Merienda', cursive;
-  background: #d8d8ae;
+  background-color: #ecece0;
+}
+
+.nb_panier {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  line-height: 20px;
+  border-radius: 30px;
+  color: red;
+  border: 2px solid red;
+  text-align: center;
+  background-color: #fff !important;
 }
 
 header {
@@ -16,10 +28,66 @@ header {
   -ms-flex-pack: distribute;
       justify-content: space-around;
   border-bottom: 2px solid grey;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 120px;
 }
 
-header img {
-  width: 250px;
+@media screen and (max-width: 650px) {
+  header {
+    height: 60px;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+header .menu-small {
+  width: 110px;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+@media screen and (min-width: 650px) {
+  header .menu-small {
+    display: none;
+  }
+}
+
+header .menu-small i {
+  font-size: 2em;
+  color: #4d76a5;
+}
+
+header .menu-small .nb_panier {
+  top: -15px;
+  left: -15px;
+  width: 15px;
+  height: 15px;
+  line-height: 15px;
+  font-size: 0.8em;
+}
+
+header .menu-small .nb_panier:hover {
+  border-color: red;
+}
+
+@media screen and (max-width: 650px) {
+  header a picture img {
+    width: 50px;
+    height: 40px;
+    margin-left: 40px;
+  }
 }
 
 header nav ul {
@@ -45,6 +113,10 @@ header nav ul .active {
   background-color: #dbebea;
 }
 
+header nav ul .panier {
+  margin: 0;
+}
+
 header nav ul li {
   width: auto;
   height: auto;
@@ -67,28 +139,36 @@ header nav ul li:hover {
 }
 
 header nav ul .nb_panier {
-  position: relative;
   top: -30px;
   left: -35px;
   width: 20px;
   height: 20px;
-  margin: 0;
-  padding: 0;
-  line-height: 20px;
-  border-radius: 30px;
-  color: red;
-  border: 2px solid red;
-  text-align: center;
-  background-color: #fff !important;
 }
 
 header nav ul .nb_panier:hover {
   border-color: red;
 }
 
+@media screen and (max-width: 650px) {
+  header nav {
+    display: none;
+  }
+}
+
+header picture img {
+  position: relative;
+  width: 250px;
+}
+
 h1 {
   text-align: center;
   color: #5e3869;
+}
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 1.5em;
+  }
 }
 
 .produits {
@@ -103,6 +183,12 @@ h1 {
   background-color: #f3e9f1;
 }
 
+@media screen and (max-width: 700px) {
+  .produits {
+    width: 80%;
+  }
+}
+
 .produits h3, .produits span {
   padding-left: 20px;
 }
@@ -113,6 +199,8 @@ h1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   -webkit-box-pack: center;
@@ -128,7 +216,7 @@ h1 {
 .produits ul li {
   position: relative;
   list-style-type: none;
-  margin: 0 40px 40px 0;
+  margin: 0 20px 40px 20px;
   padding: 0;
   width: 300px;
   height: 300px;
@@ -138,6 +226,20 @@ h1 {
   background-color: white;
   -webkit-transition: .3s;
   transition: .3s;
+}
+
+@media screen and (max-width: 808px) {
+  .produits ul li {
+    width: 85%;
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .produits ul li {
+    width: 85%;
+    height: 220px;
+  }
 }
 
 .produits ul li:hover {
@@ -160,10 +262,22 @@ h1 {
   border-top-right-radius: 7px;
 }
 
+@media screen and (max-width: 586px) {
+  .produits ul li h3 {
+    margin: 0.8em 0 0.5em;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .produits ul li h3 {
+    margin: 0 0 0.5em 0;
+  }
+}
+
 .element {
   position: relative;
   width: 80%;
-  height: 550px;
+  height: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -173,9 +287,71 @@ h1 {
   background-color: #f3e9f1;
 }
 
+.element .lense_quant {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.element .lense_quant h4 {
+  margin-top: 30px !important;
+}
+
+@media screen and (max-width: 1350px) {
+  .element .lense_quant h4 {
+    margin-top: 30px !important;
+  }
+  .element .lense_quant .zone_quant {
+    margin-right: 30px !important;
+  }
+  .element .lense_quant .zone_quant input {
+    margin-top: 0 !important;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .element .lense_quant {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .element {
+    width: 60%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .element {
+    width: 90%;
+  }
+}
+
 .element picture {
   position: relative;
   width: 50%;
+}
+
+@media screen and (max-width: 900px) {
+  .element picture {
+    width: 100%;
+  }
 }
 
 .element picture img {
@@ -188,24 +364,39 @@ h1 {
   border-bottom-left-radius: 10px;
 }
 
+@media screen and (max-width: 900px) {
+  .element picture img {
+    border-radius: 10px;
+  }
+}
+
 .element .description {
   position: relative;
   width: 50%;
   height: 100%;
 }
 
+@media screen and (max-width: 900px) {
+  .element .description {
+    width: 100%;
+  }
+}
+
 .element .description p, .element .description h4, .element .description span, .element .description .howmuch {
-  margin: 0 0 0 30px;
+  margin: 0 0 0 0;
 }
 
 .element .description h4 {
   margin-top: 30px;
 }
 
+.element .description h4:first-of-type {
+  margin-top: 0;
+}
+
 .element .description select {
   width: 150px;
   height: 30px;
-  margin-left: 30px;
   font-family: 'Merienda', cursive;
   font-size: 1em;
   cursor: pointer;
@@ -220,6 +411,17 @@ h1 {
   font-family: 'Merienda', cursive;
 }
 
+.element .description .zone_description {
+  padding: 30px;
+  height: auto;
+}
+
+@media screen and (max-width: 1350px) {
+  .element .description .zone_description {
+    height: 100%;
+  }
+}
+
 .element .description .zone-tarif {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -231,11 +433,17 @@ h1 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 26px;
+  margin-top: 32px;
   height: 100px;
   border-bottom-right-radius: 10px;
   border: 1px solid grey;
   background-color: #fff;
+}
+
+@media screen and (max-width: 1350px) {
+  .element .description .zone-tarif {
+    margin-top: 0;
+  }
 }
 
 .element .description .zone-tarif .tarif-total {
@@ -297,14 +505,43 @@ h1 {
   display: -ms-flexbox;
   display: flex;
   border-radius: 10px;
+  background-color: #f3e9f1;
   border: 1px solid grey;
   margin-bottom: 20px;
+}
+
+@media screen and (max-width: 900px) {
+  .produits_panier ul li {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 95%;
+    margin: 0 auto 20px auto;
+    height: auto;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 20px 10px 20px 10px;
+  }
 }
 
 .produits_panier ul li picture {
   position: relative;
   width: 20%;
   height: 100%;
+}
+
+@media screen and (max-width: 900px) {
+  .produits_panier ul li picture {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .produits_panier ul li picture {
+    width: 70%;
+  }
 }
 
 .produits_panier ul li picture img {
@@ -327,8 +564,47 @@ h1 {
   border-right: 2px solid black;
 }
 
+@media screen and (max-width: 900px) {
+  .produits_panier ul li .critere {
+    width: 95%;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .produits_panier ul li .critere {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    text-align: center;
+    border: none;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .produits_panier ul li .critere .sous_cat {
+    padding-bottom: 1em;
+  }
+}
+
 .produits_panier ul li .critere .sous_cat h4, .produits_panier ul li .critere .sous_cat span {
   font-size: 20px;
+}
+
+@media screen and (max-width: 900px) {
+  .produits_panier ul li .critere .sous_cat h4 {
+    margin-top: 1em;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .produits_panier ul li .critere .sous_cat h4 {
+    margin-bottom: 0;
+    margin-top: .5em;
+  }
 }
 
 .produits_panier ul li .zone_total {
@@ -345,6 +621,33 @@ h1 {
       -ms-flex-align: center;
           align-items: center;
   border-right: 2px solid black;
+}
+
+@media screen and (max-width: 900px) {
+  .produits_panier ul li .zone_total {
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    border: none;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .produits_panier ul li .zone_total h4::after {
+    content: ' : ';
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .produits_panier ul li .zone_total span::before {
+    content: ': ';
+    color: transparent;
+  }
 }
 
 .produits_panier ul li .zone_total h4, .produits_panier ul li .zone_total span {
@@ -420,6 +723,13 @@ h1 {
   padding: 0px 20px 20px 0px;
 }
 
+@media screen and (max-width: 900px) {
+  .produits_panier form {
+    text-align: center;
+    padding-right: 0;
+  }
+}
+
 .produits_panier form input {
   position: relative;
   width: 500px;
@@ -429,6 +739,13 @@ h1 {
   padding-left: 20px;
   text-transform: capitalize;
   outline: none;
+}
+
+@media screen and (max-width: 900px) {
+  .produits_panier form input {
+    width: 80%;
+    margin: 0px auto 20px auto;
+  }
 }
 
 .produits_panier form input:first-of-type {
@@ -445,6 +762,13 @@ h1 {
   padding-bottom: 10px;
   height: auto;
   text-align: right;
+}
+
+@media screen and (max-width: 900px) {
+  .validation {
+    text-align: center;
+    margin-top: 20px;
+  }
 }
 
 .validation .bouton {
@@ -490,7 +814,7 @@ h1 {
   height: auto;
   margin: auto auto 50px auto;
   border: 1px solid grey;
-  padding-left: 40px;
+  padding: 40px;
   background-color: rgba(111, 206, 111, 0.2);
   font-size: 20px;
 }

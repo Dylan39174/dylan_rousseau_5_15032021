@@ -19,7 +19,6 @@ fetch(url)
             prix.innerHTML = (data[i].price / 100).toLocaleString() + ' €';
             nom.innerHTML = data[i].name;
             li.setAttribute('id', data[i]._id);
-            // li.setAttribute('class', 'backInRight');
             li.setAttribute('onclick', 'select_product("' + data[i]._id + '")');
             img.setAttribute('src', data[i].imageUrl);
             picture.appendChild(img);

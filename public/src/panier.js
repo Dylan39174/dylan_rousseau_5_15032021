@@ -134,7 +134,7 @@ document.querySelector('.bouton').addEventListener('click', function(){
   var nb_references_LocalStorage = 0; 
   var position_tableau = 0; 
 
-  while ( nb_produit_total != 0){ 
+  while ( nb_produit_total > 0){ 
     
     var product = localStorage.getItem(localStorage.key(nb_references_LocalStorage));
     product = JSON.parse(product);

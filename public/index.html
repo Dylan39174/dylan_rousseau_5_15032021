@@ -5,21 +5,26 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./assets/style.css">
-        <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
-        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"> -->
         <link rel="shortcut icon" href="./img/logo_orinoco.png" type="image/x-icon">
-        
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
         <title>Orinoco | Accueil</title>
     </head>
     <body>
         <header>
-            <picture>
-                <a href="index.html"><img src="img/orinoco.png" alt="logo d'orinoco"></a>
-            </picture>
+            <a class="lien-accueil" href="index.html">
+                <picture>
+                    <source class="petit-logo" media="(max-width:650px)" srcset="img/logo_orinoco.png"> 
+                    <img src="img/orinoco.png" alt="logo Orinoco">
+                </picture>
+            </a>
+            <div class="menu-small">
+                <a href="index.html"><i class="fa fa-house-flood"></i></a>
+                <a href="panier.html"><i class="fas fa-shopping-cart"></i></a>
+            </div>
             <nav>
                 <ul class="nav">
-                    <a href="index.html"><li class="active">Accueil</li></a>
-                    <a href="panier.html"><li>Mon panier</li></a>
+                    <a href="index.html"><li class="header-li active">Accueil</li></a>
+                    <a href="panier.html"><li class="header-li panier">Mon panier</li></a>
                 </ul>
             </nav>
         </header>

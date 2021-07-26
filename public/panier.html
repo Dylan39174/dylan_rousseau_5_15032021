@@ -5,28 +5,36 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./assets/style.css">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
   <link rel="shortcut icon" href="./img/logo_orinoco.png" type="image/x-icon">
   <title>Orinoco | Mon panier</title>
 </head>
 <body>
   <header>
-    <picture>
-        <a href="index.html"><img src="img/orinoco.png" alt="logo d'orinoco"></a>
-    </picture>
+    <a class="lien-accueil" href="index.html">
+        <picture>
+            <source class="petit-logo" media="(max-width:650px)" srcset="img/logo_orinoco.png"> 
+            <img src="img/orinoco.png" alt="logo Orinoco">
+        </picture>
+    </a>
+    <div class="menu-small">
+        <a href="index.html"><i class="fa fa-house-flood"></i></a>
+        <a href="panier.html"><i class="fas fa-shopping-cart"></i></a>
+    </div>
     <nav>
         <ul class="nav">
-            <a href="index.html"><li>Accueil</li></a>
-            <a href="panier.html"><li class="active">Mon panier</li></a>
+            <a href="index.html"><li class="header-li">Accueil</li></a>
+            <a href="panier.html"><li class="header-li panier active">Mon panier</li></a>
         </ul>
     </nav>
-  </header>
+</header>
   <h1>Mon panier</h1>
   <div class="produits_panier">
     <ul id="liste_produit_panier">
 
     </ul>
     <div class="total_panier">
-      <span>Total :</span>
+      <span>Total panier :</span>
       <span class="prix_total_panier">0€</span>
     </div>
     <form id="form" method="POST">

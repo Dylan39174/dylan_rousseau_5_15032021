@@ -25,7 +25,7 @@ function add_product(){
   var quant = parseInt(document.querySelector('.howmuch').value);
 
   var produit = new Item (id, name, image_url, tarif, lense, quant);
-  console.log(produit.lense);
+
   if(localStorage.length === 0){
       localStorage.setItem(id + '-' + produit.lense, JSON.stringify(produit));
   }else{ 
@@ -45,19 +45,23 @@ function add_product(){
   }
 
 function display_quant_product(){
+  var x = nombre_itteration();
+  var Lscreen = screen.width;
   
-  if(localStorage.length >= 1 && localStorage.getItem('contact') == null){
-      var li = document.createElement('li');
-      li.setAttribute('class', 'nb_panier');
-      if (localStorage.getItem('selection_product') == null){
-        li.innerHTML = localStorage.length;
-      }else{
-        if(localStorage.length == 1){
-          return 0;
-        }
-        li.innerHTML = localStorage.length -= 1;
+  if (Lscreen >= 650){
+    var element = document.createElement('li');
+    var dest = document.querySelector('.nav');
+  }else{
+    var element = document.createElement('div');
+    var dest = document.querySelector('.menu-small');
+  }
+  if(localStorage.length >= 1){
+      element.setAttribute('class', 'nb_panier');
+      element.innerHTML = x;
+      if (x == 0){
+        return 0;
       }
-      document.querySelector('.nav').appendChild(li);
+      dest.appendChild(element);
   }
 }
 
@@ -100,6 +104,7 @@ function calcul_total(products){
 
 function nombre_itteration(){ 
   let x = 0;
+  localStorage.removeItem('selection_product');
   for (i = 0; i < localStorage.length ; i++){
 
     var product = localStorage.getItem(localStorage.key(i));
