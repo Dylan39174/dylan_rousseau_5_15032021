@@ -224,8 +224,6 @@ h1 {
   border: 2px solid #8b7e7e;
   border-radius: 10px;
   background-color: white;
-  -webkit-transition: .3s;
-  transition: .3s;
 }
 
 @media screen and (max-width: 808px) {
@@ -244,8 +242,6 @@ h1 {
 
 .produits ul li:hover {
   border-color: black;
-  -webkit-transform: scale(1.05);
-          transform: scale(1.05);
 }
 
 .produits ul li picture {
@@ -409,6 +405,14 @@ h1 {
   font-size: 1em;
   padding-left: 10px;
   font-family: 'Merienda', cursive;
+}
+
+.element .description .howmuch::-webkit-outer-spin-button {
+  cursor: pointer;
+}
+
+.element .description .howmuch::-webkit-inner-spin-button {
+  cursor: pointer;
 }
 
 .element .description .zone_description {
@@ -739,6 +743,12 @@ h1 {
   padding-left: 20px;
   text-transform: capitalize;
   outline: none;
+  color: black;
+}
+
+.produits_panier form input:focus {
+  border: 2px solid #7faf7f;
+  background-color: #d7f7b9;
 }
 
 @media screen and (max-width: 900px) {
@@ -754,6 +764,42 @@ h1 {
 
 .produits_panier form input:last-of-type {
   text-transform: none;
+}
+
+.produits_panier form input::-webkit-input-placeholder {
+  color: black;
+  opacity: .5;
+}
+
+.produits_panier form input:-ms-input-placeholder {
+  color: black;
+  opacity: .5;
+}
+
+.produits_panier form input::-ms-input-placeholder {
+  color: black;
+  opacity: .5;
+}
+
+.produits_panier form input::placeholder {
+  color: black;
+  opacity: .5;
+}
+
+.produits_panier form select {
+  position: relative;
+  width: 526px;
+  height: 40px;
+  margin: 0px 0px 20px 100px;
+  font-size: 20px;
+  padding-left: 20px;
+  color: grey;
+  outline: none;
+  cursor: pointer;
+}
+
+.produits_panier form .BC_black {
+  color: black !important;
 }
 
 .validation {
@@ -789,20 +835,6 @@ h1 {
   color: black;
 }
 
-.test {
-  margin-top: 40px;
-  text-align: center;
-  font-size: 25px;
-}
-
-.test span {
-  padding: 10px 15px 10px 15px;
-  border: 2px solid grey;
-  border-radius: 30px;
-  background-color: #f3b2b2;
-  cursor: pointer;
-}
-
 .erreur {
   margin: 50px 0px 0px 100px;
   color: red;
@@ -825,5 +857,110 @@ h1 {
 
 .cadre span {
   font-weight: bold;
+}
+
+footer {
+  position: relative;
+  width: 90%;
+  height: auto;
+  margin: 50px auto 20px auto;
+  padding: 20px;
+  border: 1px solid grey;
+  border-radius: 5%;
+  background-color: #f3e9f1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+  footer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+footer .div-footer {
+  position: relative;
+  width: calc(100% / 3);
+  text-align: center;
+  border-right: 2px solid grey;
+}
+
+footer .div-footer:last-of-type {
+  border: none;
+}
+
+@media screen and (max-width: 840px) {
+  footer .div-footer {
+    width: calc(100% / 2);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  footer .div-footer {
+    width: 100%;
+    border: none;
+  }
+}
+
+footer .div-footer a {
+  position: relative;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+footer .div-footer a:hover {
+  color: #41ad33;
+}
+
+footer .div-footer a:hover::after {
+  opacity: 1;
+  top: 100%;
+}
+
+footer .div-footer a::after {
+  content: '';
+  position: absolute;
+  top: 140%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #41ad33;
+  opacity: 0;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+footer .logo img {
+  position: relative;
+  width: 250px;
+}
+
+@media screen and (max-width: 840px) {
+  footer .logo {
+    display: none;
+  }
+}
+
+footer .menu a {
+  position: relative;
+}
+
+footer .menu a:hover {
+  color: #41ad33;
+}
+
+footer .menu a:hover::after {
+  opacity: 1;
+  top: 100%;
 }
 /*# sourceMappingURL=style.css.map */

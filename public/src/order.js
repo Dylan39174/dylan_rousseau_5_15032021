@@ -16,7 +16,6 @@ fetch(url += '/order', {
   }
 })
 .then((response) => {
-  console.log(response);
   document.querySelector('.num_commande').innerHTML = response.orderId;
   document.querySelector('.nom_client').innerHTML = response.contact.lastName + ' ' + response.contact.firstName;
   document.querySelector('.nb_produit').innerHTML = response.products.length;

@@ -13,6 +13,7 @@ if (localStorage.length != 0){
     item = JSON.parse(localStorage.getItem(item));
   
     var li = document.createElement('li');
+    li.setAttribute('data-aos', 'fade-up');
     var picture = document.createElement('picture');
     var img = document.createElement('img');
     img.setAttribute('src', item.url);
@@ -106,6 +107,7 @@ if (localStorage.length != 0){
 
 document.querySelector('.bouton').addEventListener('click', function(){
   var inputs = document.getElementsByTagName('input');
+  var ville = document.querySelector('.ville').value;
   var erreur = '';
 
   if (!inputs["email"].value.match(/[a-z0-9_\-\.]+@[a-z0-9_\-\.]+\.[a-z]+/i)) {
@@ -123,11 +125,11 @@ document.querySelector('.bouton').addEventListener('click', function(){
   }
 
   if(erreur){
-    document.querySelector('.erreur').innerHTML = erreur ;
+    document.querySelector('.erreur').innerHTML = erreur;
     return 0;
   }
 
-  const contact = new Contact (inputs["firstname"].value, inputs["lastname"].value, inputs["adress"].value, inputs["city"].value, inputs["email"].value);
+  const contact = new Contact (inputs["firstname"].value, inputs["lastname"].value, inputs["adress"].value, ville, inputs["email"].value);
   var products = [];
   var nb_produit_total = nombre_itteration(); // Fonction qui retourne le nombre de produits total (x);
   
@@ -152,3 +154,7 @@ document.querySelector('.bouton').addEventListener('click', function(){
   document.location.href = 'commande.html';
   
 });
+
+document.querySelector('select').addEventListener('click', function() {
+  document.querySelector('select').className = 'code_postal BC_black';
+})

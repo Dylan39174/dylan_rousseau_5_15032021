@@ -10,9 +10,7 @@ function calculations_price(prix){
   var quantitee = document.querySelector('.howmuch').value;
   var tarif_sortie = (prix / 100) * quantitee;  
   document.querySelector('.prix_total').innerHTML = tarif_sortie.toLocaleString() + ' €';
-
 }
-
 function add_product(){
 
   if(document.querySelector('.howmuch').value == 0){
@@ -26,28 +24,20 @@ function add_product(){
 
   var produit = new Item (id, name, image_url, tarif, lense, quant);
 
-  if(localStorage.length === 0){
+  if(localStorage.getItem(id + '-' + produit.lense) == null){ 
       localStorage.setItem(id + '-' + produit.lense, JSON.stringify(produit));
   }else{ 
-      if(localStorage.getItem(id + '-' + produit.lense) == null){ 
-          localStorage.setItem(id + '-' + produit.lense, JSON.stringify(produit));
-      }else{ 
-          console.log(produit.lense);
-          var mon_tableau = JSON.parse(localStorage.getItem(id + '-' + produit.lense));
-          quant = mon_tableau.quant += produit.quant;
-          var produit = new Item (id, name, image_url, tarif, lense, quant);
-          localStorage.setItem(id + '-' + produit.lense, JSON.stringify(produit));
-          
-      }
-    }
-  document.location.href="index.html"; 
-  
+      var mon_tableau = JSON.parse(localStorage.getItem(id + '-' + produit.lense));
+      quant = mon_tableau.quant += produit.quant;
+      var produit = new Item (id, name, image_url, tarif, lense, quant);
+      localStorage.setItem(id + '-' + produit.lense, JSON.stringify(produit));
   }
+  document.location.href="index.html"; 
+}
 
 function display_quant_product(){
   var x = nombre_itteration();
   var Lscreen = screen.width;
-  
   if (Lscreen >= 650){
     var element = document.createElement('li');
     var dest = document.querySelector('.nav');
@@ -62,6 +52,7 @@ function display_quant_product(){
         return 0;
       }
       dest.appendChild(element);
+      document.querySelector('.quant_panier').innerHTML = 'Mon Panier (' + x + ')';
   }
 }
 
@@ -71,23 +62,17 @@ function delete_product(num){
   document.location.href = "panier.html";
 }
 
-function remplir(){
-  var inputs = document.getElementById('form').getElementsByTagName('input');
-  inputs['firstname'].value = 'dylan';
-  inputs['lastname'].value = 'rousseau';
-  inputs['adress'].value = '1 rue henri prost';
-  inputs['city'].value = 'champagnole';
-  inputs['email'].value = 'dylan.rousseau77@orange.fr';
-}
-
-function verifierCaracteres(event) {
+function verifierCaracteres(event, num) {
 	 		
 	var keyCode = event.which ? event.which : event.keyCode;
 	var touche = String.fromCharCode(keyCode);
-			
-	var champ = document.getElementById('mon_input');	
-	var caracteres = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ -';
-			
+	var champ = document.activeElement;
+  if (num){
+    var caracteres = '1234567890';
+  }else{
+    var caracteres = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ -';
+  }
+
 	if(caracteres.indexOf(touche) >= 0) {
 		champ.value += touche;
 	}
@@ -120,3 +105,41 @@ function nombre_itteration(){
   return x;
 }
 
+function search_city(){
+
+  document.querySelector('.erreur').innerHTML = '';
+  var code = document.querySelector('.code_postal').value;
+  var select = document.querySelector('select');
+
+  while(select.firstChild){
+    select.removeChild(select.firstChild);
+  }
+
+  if (code.length != 5){
+    document.querySelector('.erreur').innerHTML = 'Le code postal est invalide';
+  }
+
+  var url = 'https://geo.api.gouv.fr/communes?codePostal=' + code;
+  
+  fetch(url)
+    .then((response) => {
+      if(response.ok){
+        return response.json();
+      }
+    })
+    .then((data) => {
+      if(data.length == 0){
+        document.querySelector('.erreur').innerHTML = 'Aucune commune ne correspond à ce code postal !';
+        return 0;
+      }
+      for(i = 0 ; i < data.length ; i++){
+        var option = document.createElement('option');
+        option.setAttribute('value', data[i].nom);
+        option.innerHTML = data[i].nom;
+        select.appendChild(option);
+      }
+    })
+    .catch((err) => {
+      console.log('erreur');
+    })
+}

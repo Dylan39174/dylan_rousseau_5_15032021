@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./assets/style.css">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="shortcut icon" href="./img/logo_orinoco.png" type="image/x-icon">
   <title>Orinoco | Mon panier</title>
 </head>
@@ -33,30 +34,51 @@
     <ul id="liste_produit_panier">
 
     </ul>
-    <div class="total_panier">
+    <div class="total_panier" data-aos="fade-up">
       <span>Total panier :</span>
       <span class="prix_total_panier">0€</span>
     </div>
-    <form id="form" method="POST">
+    <form id="form" method="POST" data-aos="fade-up">
       <input type="text" name="firstname" placeholder="Prénom" autocomplete="off" onkeypress="verifierCaracteres(event); return false;"><br>
       <input type="text" name="lastname" placeholder="Nom" autocomplete="off" onkeypress="verifierCaracteres(event); return false;"><br>
-      <input type="text" name="adress" placeholder="Adresse" autocomplete="off"><br>
-      <input type="text" name="city" placeholder="Ville" autocomplete="off" onkeypress="verifierCaracteres(event); return false;"><br>
+      <input class="adress" type="text" name="adress" placeholder="Adresse" autocomplete="off"><br>
+      <input type="text" class="code_postal" name="code_postal" placeholder="Code postal" autocomplete="off" onkeypress="verifierCaracteres(event, 1); return false;" onblur="search_city()">
+      <select name="city" class="ville">
+        <option value="Ville">Ville</option>
+      </select>
       <input id="mail" type="email" name="email" placeholder="Adresse mail" autocomplete="off">
       <div class="validation">
       <span class="bouton">Passer la commande</span>
       </div>
       <span class="erreur"></span>
     </form>
-    
-    
   </div>
-  <div class="test" onclick="remplir()">
-    <span>remplir le formulaire</span>
+  <footer>
+    <div class="div-footer logo">
+        <picture>
+            <img src="img/orinoco.png" alt="logo_orinoco">
+        </picture>
+    </div>
+    <div class="div-footer contact">
+        <h4>Orinoco | Nous contacter</h4>
+        <span>36 Avenue du site web</span><br>
+        <span>14660 Remote</span>
+        <address>
+            <a href="mailto:nullepart@chrome.org">Nous contacter</a><br>
+            <a href="tel:0821498637">08 21 49 86 37</a>
+        </address>
+        
+    </div>
+    <div class="div-footer menu">
+      <h4>Navigation</h4>
+      <a href="index.html">Accueil</a><br>
+      <a href="panier.html" class="quant_panier">Mon panier</a>
   </div>
-  
+</footer>
   <script src="./src/functions.js"></script>
   <script src="./src/class.js"></script>
   <script src="./src/panier.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
 </body>
 </html>

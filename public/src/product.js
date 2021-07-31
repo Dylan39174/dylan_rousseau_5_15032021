@@ -1,6 +1,6 @@
 // Récupération et affichage des détails du produit séléctionné sur la page d'accueil
 var id = localStorage.getItem('selection_product');
-fetch(url + '/' + localStorage.getItem('selection_product'))
+fetch(url + '/' + id)
   .then((response) => {
       if(response.ok){
           return response.json();
@@ -18,7 +18,6 @@ fetch(url + '/' + localStorage.getItem('selection_product'))
           var option = document.createElement('option');
           option.innerHTML = data.lenses[i];
           document.querySelector('.lense').appendChild(option);
-
       }
       document.querySelector('.howmuch').setAttribute('onchange', 'calculations_price(' + data.price + ')');
       localStorage.removeItem('selection_product');
