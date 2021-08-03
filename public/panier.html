@@ -32,7 +32,6 @@
   <h1>Mon panier</h1>
   <div class="produits_panier">
     <ul id="liste_produit_panier">
-
     </ul>
     <div class="total_panier" data-aos="fade-up">
       <span>Total panier :</span>
@@ -43,7 +42,7 @@
       <input type="text" name="firstname" placeholder="Prénom" autocomplete="off" onkeypress="verifierCaracteres(event); return false;"><br>
       <input type="text" name="lastname" placeholder="Nom" autocomplete="off" onkeypress="verifierCaracteres(event); return false;"><br>
       <input class="adress" type="text" name="adress" placeholder="Adresse" autocomplete="off"><br>
-      <input type="text" class="code_postal" name="code_postal" placeholder="Code postal" autocomplete="off" onkeypress="verifierCaracteres(event, 1); return false;" onblur="search_city()">
+      <input type="text" minlength="4" maxlength="5" class="code_postal" name="code_postal" placeholder="Code postal" autocomplete="off" onkeypress="verifierCaracteres(event, 1); return false;" onblur="search_city()">
       <select name="city" class="ville">
         <option value="Ville">Ville</option>
       </select>
@@ -71,7 +70,7 @@
   <footer>
     <div class="div-footer logo">
         <picture>
-            <img src="img/orinoco.png" alt="logo_orinoco">
+            <a href="index.html"><img src="img/orinoco.png" alt="logo_orinoco"></a>
         </picture>
     </div>
     <div class="div-footer contact">
@@ -89,12 +88,10 @@
       <a href="panier.html" class="quant_panier">Mon panier</a>
   </div>
 </footer>
-
   <script src="./src/functions.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="./src/class.js"></script>
   <script src="./src/panier.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init();</script>
 </body>
 </html>

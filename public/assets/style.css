@@ -977,6 +977,10 @@ footer .div-footer a::after {
   transition: .3s;
 }
 
+footer .logo a::after {
+  display: none;
+}
+
 footer .logo img {
   position: relative;
   width: 250px;
