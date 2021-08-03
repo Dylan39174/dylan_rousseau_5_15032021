@@ -6,6 +6,8 @@ if (localStorage.length === 0 ){
   document.getElementById('liste_produit_panier').remove();
   document.querySelector('h1').innerHTML = 'Votre panier est vide !';
   document.querySelector('.produits_panier').remove();
+}else{
+  document.querySelector('.animation').className = 'anim-none';
 }
 if (localStorage.length != 0){
   for(i = localStorage.length -= 1 ; i >= 0 ; i--){
@@ -105,56 +107,61 @@ if (localStorage.length != 0){
 
 }
 
-document.querySelector('.bouton').addEventListener('click', function(){
-  var inputs = document.getElementsByTagName('input');
-  var ville = document.querySelector('.ville').value;
-  var erreur = '';
-
-  if (!inputs["email"].value.match(/[a-z0-9_\-\.]+@[a-z0-9_\-\.]+\.[a-z]+/i)) {
-    erreur = 'Attention! l\'addresse mail n\'est pas valide';
-  }
-
-  for(var i = 0 ; i < inputs.length ; i ++){
-    if(!inputs[i].value){
-      erreur = 'Veuillez renseigner tous les champs';
-    }
-  }
-
-  if(localStorage.length == 0){
-    erreur = 'Votre panier est vide!';
-  }
-
-  if(erreur){
-    document.querySelector('.erreur').innerHTML = erreur;
-    return 0;
-  }
-
-  const contact = new Contact (inputs["firstname"].value, inputs["lastname"].value, inputs["adress"].value, ville, inputs["email"].value);
-  var products = [];
-  var nb_produit_total = nombre_itteration(); // Fonction qui retourne le nombre de produits total (x);
+if(localStorage.length != 0){
+  document.querySelector('.bouton').addEventListener('click', function(){
+    var inputs = document.getElementsByTagName('input');
+    var ville = document.querySelector('.ville').value;
+    var erreur = '';
   
-  var nb_references_LocalStorage = 0; 
-  var position_tableau = 0; 
-
-  while ( nb_produit_total > 0){ 
+    if (!inputs["email"].value.match(/[a-z0-9_\-\.]+@[a-z0-9_\-\.]+\.[a-z]+/i)) {
+      erreur = 'Attention! l\'addresse mail n\'est pas valide';
+    }
+  
+    for(var i = 0 ; i < inputs.length ; i ++){
+      if(!inputs[i].value){
+        erreur = 'Veuillez renseigner tous les champs';
+      }
+    }
+  
+    if(localStorage.length == 0){
+      erreur = 'Votre panier est vide!';
+    }
+  
+    if(erreur){
+      document.querySelector('.erreur').innerHTML = erreur;
+      return 0;
+    }
+  
+    const contact = new Contact (inputs["firstname"].value, inputs["lastname"].value, inputs["adress"].value, ville, inputs["email"].value);
+    var products = [];
+    var nb_produit_total = nombre_itteration(); // Fonction qui retourne le nombre de produits total (x);
     
-    var product = localStorage.getItem(localStorage.key(nb_references_LocalStorage));
-    product = JSON.parse(product);
-
-    for( i = 0 ; i < product.quant ; i++){
-      products[position_tableau] = product.id;
-      position_tableau++;
-      nb_produit_total--;
+    var nb_references_LocalStorage = 0; 
+    var position_tableau = 0; 
+  
+    while ( nb_produit_total > 0){ 
+      
+      var product = localStorage.getItem(localStorage.key(nb_references_LocalStorage));
+      product = JSON.parse(product);
+  
+      for( i = 0 ; i < product.quant ; i++){
+        products[position_tableau] = product.id;
+        position_tableau++;
+        nb_produit_total--;
+      }
+      nb_references_LocalStorage++;
     }
-    nb_references_LocalStorage++;
-  }
-  
-  const objet = new obj (contact, products);
-  localStorage.setItem('objet', JSON.stringify(objet));
-  document.location.href = 'commande.html';
-  
-});
+    
+    const objet = new obj (contact, products);
+    localStorage.setItem('objet', JSON.stringify(objet));
+    document.location.href = 'commande.html';
+    
+  });
+  document.querySelector('select').addEventListener('click', function() {
+    document.querySelector('select').className = 'ville C_black';
+  })
+}
 
-document.querySelector('select').addEventListener('click', function() {
-  document.querySelector('select').className = 'code_postal BC_black';
-})
+
+
+

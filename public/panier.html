@@ -24,8 +24,8 @@
     </div>
     <nav>
         <ul class="nav">
-            <a href="index.html"><li class="header-li">Accueil</li></a>
-            <a href="panier.html"><li class="header-li panier active">Mon panier</li></a>
+            <li class="header-li accueil"><a href="index.html">Accueil</a></li>
+            <li class="header-li panier active"><a href="panier.html">Mon panier</a></li>
         </ul>
     </nav>
 </header>
@@ -39,6 +39,7 @@
       <span class="prix_total_panier">0€</span>
     </div>
     <form id="form" method="POST" data-aos="fade-up">
+      <h2>Formulaire de commande</h2>
       <input type="text" name="firstname" placeholder="Prénom" autocomplete="off" onkeypress="verifierCaracteres(event); return false;"><br>
       <input type="text" name="lastname" placeholder="Nom" autocomplete="off" onkeypress="verifierCaracteres(event); return false;"><br>
       <input class="adress" type="text" name="adress" placeholder="Adresse" autocomplete="off"><br>
@@ -53,6 +54,20 @@
       <span class="erreur"></span>
     </form>
   </div>
+  <a href="index.html"><div class="animation">
+      <span class="O-1 el">O</span>
+      <span class="R el">R</span>
+      <span class="I el">I</span>
+      <span class="N el">N</span>
+      <span class="O-2 el">O</span>
+      <span class="C el">C</span>
+      <span class="O-3 el">O</span>
+    <div class="panier">
+        <picture>
+          <img src="./img/svg/orinoco.svg" alt="">
+        </picture>
+    </div>
+  </div></a>
   <footer>
     <div class="div-footer logo">
         <picture>
@@ -67,7 +82,6 @@
             <a href="mailto:nullepart@chrome.org">Nous contacter</a><br>
             <a href="tel:0821498637">08 21 49 86 37</a>
         </address>
-        
     </div>
     <div class="div-footer menu">
       <h4>Navigation</h4>
@@ -75,9 +89,11 @@
       <a href="panier.html" class="quant_panier">Mon panier</a>
   </div>
 </footer>
+
   <script src="./src/functions.js"></script>
   <script src="./src/class.js"></script>
   <script src="./src/panier.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>AOS.init();</script>
 </body>

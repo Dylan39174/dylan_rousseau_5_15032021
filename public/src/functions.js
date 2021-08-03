@@ -62,22 +62,24 @@ function delete_product(num){
   document.location.href = "panier.html";
 }
 
-function verifierCaracteres(event, num) {
-	 		
-	var keyCode = event.which ? event.which : event.keyCode;
-	var touche = String.fromCharCode(keyCode);
-	var champ = document.activeElement;
-  if (num){
-    var caracteres = '1234567890';
-  }else{
-    var caracteres = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ -';
-  }
+function verifierCaracteres(event, num){
 
-	if(caracteres.indexOf(touche) >= 0) {
-		champ.value += touche;
-	}
-			
+ var champ = document.activeElement;
+ var keyCode = event.which ? event.which : event.keyCode;
+ var nb_car = champ.value.length;
+ if (num){
+   var car = '0123456789';
+   var car_autor = 5;
+ }else{
+   var car = 'azertyuiopmlkjhgfdsqwxcvbnéèàêëâ- ';
+   var car_autor = 25;
+ }
+
+ if  (car.indexOf(String.fromCharCode(keyCode)) >= 0 && nb_car < car_autor){
+  champ.value = string.fromCharCode(keyCode);
+ }
 }
+
 
 function calcul_total(products){
   let somme = 0;

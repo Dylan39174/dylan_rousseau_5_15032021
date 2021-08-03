@@ -1,10 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Merienda&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
-// @keyframes anim-footer {
-//     0%{
-        
-//     }
-// }
 
 body{
     width: 100%;
@@ -492,11 +488,15 @@ h1{
                     h4{
                         @media screen and (max-width: 900px) {
                             margin-top: 1em;
+                            font-size: 15px;
                         }
                         @media screen and (max-width: 600px) {
                             margin-bottom: 0;
                             margin-top: .5em;
                         }
+                    }
+                    span{
+                        font-size: 15px;
                     }
 
                 }
@@ -588,10 +588,15 @@ h1{
         border: 1px solid grey;
         border-radius: 10px;
         padding: 0px 20px 20px 0px;
+        h2{
+            text-align: center;
+            color: #5e3869;
+        }
         @media screen and (max-width: 900px) {
             text-align: center;
             padding-right: 0;
         }
+
         input{
             position: relative;
             width: 500px;
@@ -608,7 +613,7 @@ h1{
                 background-color: rgb(215, 247, 185);
             }
             @media screen and (max-width: 900px) {
-                width: 80%;
+                width: 76%;
                 margin: 0px auto 20px auto;
             }
 
@@ -623,22 +628,28 @@ h1{
                 opacity: .5;
             }
         }
+
         select{
             position: relative;
             width: 526px;
-            height: 40px;
+            height: 45px;
             margin: 0px 0px 20px 100px;
             font-size: 20px;
             padding-left: 20px;
             color: grey;
             outline: none;
             cursor: pointer;
+            @media screen and (max-width: 900px) {
+                width: 80%;
+                margin: 0px auto 20px auto;
+            }
         }
-        .BC_black{
+        .C_black{
             color: black !important;
         }
     }
 }
+
 
 .validation{
     position: relative;
@@ -646,9 +657,10 @@ h1{
     padding-bottom: 10px;
     height: auto;
     text-align: right;
+    margin-top: 20px;
     @media screen and (max-width: 900px) {
         text-align: center;
-        margin-top: 20px;
+        
     }
     .bouton{
       position: relative;
@@ -688,7 +700,22 @@ h1{
         font-weight: bold;
     }
 }
-
+.square{
+    width: 30px;
+    height: 30px;
+    background-color: blue;
+}
+.circle{
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    background-color: blue;
+}
+.rectangle{
+    width: 30px;
+    height: 50px;
+    background-color: blue;
+}
 footer{
     position: relative;
     width: 90%;
@@ -773,3 +800,148 @@ footer{
         }
     }
 }
+
+@keyframes panier {
+    0%{
+      left: 0%;
+      top: calc(100% - 110px);
+    }
+    25%{
+      left: calc(100% - 150px);
+      transform: rotate(0deg);
+      top: calc(100% - 110px);
+      animation-timing-function: cubic-bezier(.43,.57,.14,.99);
+      
+    }
+    50%{
+        top: 98%;
+        left: calc(100% - 150px);
+        transform: rotate(180deg);
+        animation-timing-function: ease-in;
+    }
+    80%{
+        top: 98%;
+        left: -100px;
+        transform: rotate(180deg);
+    }
+    90%{
+        left: -100px;
+        top: calc(100% - 110px);
+        transform: rotate(360deg);
+    }
+
+    100%{
+        left: 0;
+        top: calc(100% - 110px);
+        transform: rotate(360deg);
+    }
+  }
+
+  @keyframes letter {
+      0%{
+          opacity: 1;
+          top: 15%;
+      }
+      15%{
+          opacity: 1;
+          left: 82%;
+          top: 15%;
+      }
+      20%{
+        opacity: 1;
+        left: 82%;
+        top: 15%;
+    }
+      30%{
+        opacity: 1;
+        left: 82%;
+        top: 60%;
+      }
+      50%{
+        opacity: 1;
+        left: 82%;
+        top: 60%;
+      }
+      80%{
+        opacity: 1;
+        top: 60%;
+      }
+  }
+
+.animation{
+    position: relative;
+    width: 30%;
+    height: 150px;
+    margin: 50px auto 120px auto;
+    padding: 30px;
+    border-radius: 20px;
+    background: linear-gradient(164deg, rgba(210,249,207,1) 0%, 
+    rgba(98,183,198,0.8690826672465861) 55%, rgba(136,203,228,1) 100%);
+    box-shadow: 0px 2px 37px 10px rgba(136,203,228,0.82);
+    border: 4px solid grey;
+    @media screen and (max-width: 850px) {
+        width: 50%;
+    }
+    @media screen and (max-width: 530px) {
+        display: none;
+    }
+
+    .el{
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        font-family: 'Permanent Marker', cursive;
+        font-size: 35px;
+        margin: 0;
+        text-align: center;
+        top: 15%;
+        right: 0;
+        bottom: 0;
+        animation: letter 7s infinite;
+      &:nth-child(1){
+        color: red;
+        animation: letter 7s infinite;
+        left: 7%;
+      }
+      &:nth-child(2){
+        color: rgb(176, 199, 48);
+        left: 19.5%;
+      }
+      &:nth-child(3){
+        color: rgba(26, 168, 102, 0.644);
+        left: 32%;
+      }
+      &:nth-child(4){
+        color: rgb(14, 69, 121);
+        left: 44.5%;
+      }
+      &:nth-child(5){
+        color: rgb(75, 31, 95);
+        left: 57%;
+      }
+      &:nth-child(6){
+        color: rgb(241, 112, 235);
+        left: 69.5%;
+      }
+      &:nth-child(7){
+        color: rgb(0, 255, 115);
+        left: 82%;
+      }
+    }
+    .panier{
+
+      img{
+        position: absolute;
+        top: calc(100% - 110px);
+        left: 0%;
+        width: 150px;
+        animation: panier 7s linear infinite;
+      }
+
+    }
+  
+  }
+
+  .anim-none{
+      display: none;
+  }
