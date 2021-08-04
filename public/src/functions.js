@@ -1,17 +1,17 @@
 var url = 'http://localhost:3000/api/cameras';
 
-function select_product(id) {
+function selectProduct(id) {
   localStorage.setItem('selection_product', id);
   document.location.href="product.html";
 }
 
-function calculations_price(prix){
+function calculationsPrice(prix){
   var quantitee = document.querySelector('.howmuch').value;
   var tarif_sortie = (prix / 100) * quantitee;  
   document.querySelector('.prix_total').innerHTML = tarif_sortie.toLocaleString() + ' €';
 }
 
-function add_product(){
+function addProduct(){
   if(document.querySelector('.howmuch').value == 0){
       alert('La quantité doit être supérieur à 0');
       return 0;
@@ -31,8 +31,8 @@ function add_product(){
   document.location.href="index.html"; 
 }
 
-function display_quant_product(){
-  var x = nombre_itteration();
+function displayQuantProduct(){
+  var x = nombreItteration();
   var Lscreen = screen.width;
   if (Lscreen >= 650){
     var element = document.createElement('li');
@@ -52,7 +52,7 @@ function display_quant_product(){
   }
 }
 
-function delete_product(num){
+function deleteProduct(num){
   var item_suppr = localStorage.key(num);
   localStorage.removeItem(item_suppr);
   document.location.href = "panier.html";
@@ -73,7 +73,7 @@ function verifierCaracteres(event, num){
   }
  }
 
-function calcul_total(products){
+function calculTotal(products){
   let somme = 0;
   for(i = 0 ; i < products.length ; i++){
     somme += products[i].price / 100 ;
@@ -81,7 +81,7 @@ function calcul_total(products){
   return somme.toLocaleString();
 }
 
-function nombre_itteration(){ 
+function nombreItteration(){ 
   let x = 0;
   localStorage.removeItem('selection_product');
   for (i = 0; i < localStorage.length ; i++){
@@ -96,7 +96,7 @@ function nombre_itteration(){
   return x;
 }
 
-function search_city(){
+function searchCity(){
   document.querySelector('.erreur').innerHTML = '';
   var code = document.querySelector('.code_postal').value;
   var select = document.querySelector('select');
@@ -126,7 +126,7 @@ function search_city(){
       }
     })
     .catch((err) => {
-      console.log('erreur');
+      alert(err)
     })
 }
 
@@ -141,7 +141,7 @@ function getAllProducts(){
       displayAllProducts(data);
     })
     .catch((err) => {
-      console.log(err);
+      alert(err);
     })
 }
 
@@ -151,7 +151,7 @@ function displayAllProducts(data){
     var picture = document.createElement('picture');
     var img = document.createElement('img');
     var prix = document.createElement('span');
-    var nom = document.createElement('h3');
+    var nom = document.createElement('h2');
     var mon_element = document.getElementById('items');
     prix.innerHTML = (data[i].price / 100).toLocaleString() + ' €';
     nom.innerHTML = data[i].name;
@@ -161,8 +161,9 @@ function displayAllProducts(data){
     }else{
         li.setAttribute('data-aos', 'fade-up');
     }
-    li.setAttribute('onclick', 'select_product("' + data[i]._id + '")');
+    li.setAttribute('onclick', 'selectProduct("' + data[i]._id + '")');
     img.setAttribute('src', data[i].imageUrl);
+    img.setAttribute('alt', 'image du produit ' + data[i].name);
     picture.appendChild(img);
     li.appendChild(picture);
     li.appendChild(nom);
@@ -191,10 +192,10 @@ function displayOneProduct(id){
           option.innerHTML = data.lenses[i];
           document.querySelector('.lense').appendChild(option);
       }
-      document.querySelector('.howmuch').setAttribute('onchange', 'calculations_price(' + data.price + ')');
+      document.querySelector('.howmuch').setAttribute('onchange', 'calculationsPrice(' + data.price + ')');
       localStorage.removeItem('selection_product');
   })
-  document.querySelector('.active').className = '';
+  
 }
 
 function displayBasket(){
@@ -215,7 +216,7 @@ function displayBasket(){
         var picture = document.createElement('picture');
         var img = document.createElement('img');
         img.setAttribute('src', item.url);
-      
+        img.setAttribute('alt', 'Image du produit ' + item.name);
         var div_critere = document.createElement('div');
         div_critere.setAttribute('class', 'critere');
       
@@ -224,7 +225,7 @@ function displayBasket(){
       
         var div_croix = document.createElement('div');
         div_croix.setAttribute('class', 'croix');
-        div_croix.setAttribute('onclick', 'delete_product(' + i + ')'); 
+        div_croix.setAttribute('onclick', 'deleteProduct(' + i + ')'); 
       
         var div_nom = document.createElement('div');
         div_nom.setAttribute('class', 'sous_cat _nom');
@@ -238,11 +239,11 @@ function displayBasket(){
         var div_quant = document.createElement('div');
         div_quant.setAttribute('class', 'sous_cat _quant');
       
-        var titre_nom = document.createElement('h4');
-        var titre_lense = document.createElement('h4');
-        var titre_prix = document.createElement('h4');
-        var titre_quant = document.createElement('h4');
-        var titre_total = document.createElement('h4');
+        var titre_nom = document.createElement('h2');
+        var titre_lense = document.createElement('h2');
+        var titre_prix = document.createElement('h2');
+        var titre_quant = document.createElement('h2');
+        var titre_total = document.createElement('h2');
       
         var span_nom = document.createElement('span');
         var span_lense = document.createElement('span');
@@ -297,7 +298,7 @@ function displayBasket(){
         
         document.querySelector('#liste_produit_panier').appendChild(li);
       }
-      display_quant_product();
+      displayQuantProduct();
       document.querySelector('.prix_total_panier').innerHTML = somme_produit.toLocaleString() + ' €';
     }
   }
@@ -326,7 +327,7 @@ function validateForm(){
 function createObject(){
   var ville = document.querySelector('.ville').value;
   var products = [];
-  var nb_produit_total = nombre_itteration(); // Fonction qui retourne le nombre de produits total (x);
+  var nb_produit_total = nombreItteration(); // Fonction qui retourne le nombre de produits total (x);
   var nb_references_LocalStorage = 0; 
   var position_tableau = 0;
   var inputs = document.getElementsByTagName('input');
@@ -378,11 +379,31 @@ function postObject(){
     document.querySelector('.date_commande').innerHTML = getDate();
     document.querySelector('.nom_client').innerHTML = 'Mr/Mme ' + response.contact.lastName + ' ' + response.contact.firstName;
     document.querySelector('.nb_produit').innerHTML = response.products.length;
-    document.querySelector('.montant_facture').innerHTML = calcul_total(response.products) + ' €';
+    document.querySelector('.montant_facture').innerHTML = calculTotal(response.products) + ' €';
     document.querySelector('.adresse').innerHTML = response.contact.address;
   })
   .catch((err) => {
-    console.log(err);
+    alert(err);
   })
-  document.querySelector('.active').className = '';
+}
+
+document.querySelector('.lien-accueil').addEventListener('click', function() {
+  document.location.href = './index.html';
+})
+document.querySelector('.lien-accueil-footer').addEventListener('click', function() {
+  document.location.href = './index.html';
+})
+document.querySelector('.li-accueil').addEventListener('click', function() {
+  document.location.href = './index.html';
+})
+document.querySelector('.li-panier').addEventListener('click', function() {
+  document.location.href = './panier.html';
+})
+if(screen.width < 650){
+  document.querySelector('.fa-house-flood').addEventListener('click', function() {
+    document.location.href = './index.html';
+  })
+  document.querySelector('.fa-shopping-cart').addEventListener('click', function() {
+    document.location.href = './panier.html';
+  })
 }

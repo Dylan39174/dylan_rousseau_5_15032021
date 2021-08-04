@@ -8,6 +8,7 @@ body{
     margin: 0;
     padding: 0;
     font-family: 'Merienda', cursive;
+    font-display: swap;
     background-color: #ecece0;
 }
 .nb_panier{
@@ -21,6 +22,9 @@ body{
     text-align: center;
     background-color: #fff !important;
 } 
+.lien-accueil, .lien-accueil-footer{
+    cursor: pointer;
+}
 header{
     background-color: #f3e9f1;
     display: flex;
@@ -32,25 +36,29 @@ header{
         height: 60px;
          justify-content: space-between;
     }
+    
     .menu-small{
-        width: 110px;
+        width: 130px;
         height: 40px;
         display: flex;
         align-items: center;
-        justify-content: space-around;
+        justify-content: space-between;
         cursor: pointer;
         margin-right: 20px;
         @media screen and (min-width: 650px) {
             display: none;
         }
         i{
-            font-size: 2em;
+            margin-top: 20px;
+            width: 50px;
+            height: 50px;
+            font-size: 2.5em;
             color:rgb(77, 118, 165)
         }
         .nb_panier{
             
-            top: -15px;
-            left: -15px;
+            top: -10px;
+            left: -25px;
             width: 15px;
             height: 15px;
             line-height: 15px;
@@ -61,7 +69,7 @@ header{
             }
         }
     }
-    a{
+    .lien-accueil{
         picture{
 
             img{
@@ -160,7 +168,7 @@ h1{
         width: 80%;               
     }
     
-    h3, span{
+    h2, span{
         padding-left: 20px;
     }
 
@@ -218,10 +226,10 @@ h1{
                     }
                 }
             }
-            h3{
-
-                @media screen and (max-width: 586px) {
-                    margin: 0.8em 0 0.5em ;
+            h2{
+                margin: 10px 0 10px 0;
+                @media screen and (max-width: 808px) {
+                    font-size: 20px;
                 }
                 @media screen and (max-width: 430px) {
                     margin: 0 0 0.5em 0;
@@ -245,12 +253,12 @@ h1{
             display : flex;
             justify-content: space-between;
             align-items: center;
-        h4{
+        h2{
             margin-top: 30px !important;
         }
         @media screen and (max-width: 1350px) {
         
-            h4{
+            h2{
                 margin-top: 30px !important;
             }
     
@@ -308,11 +316,12 @@ h1{
             width: 100%;
         }
 
-        p, h4, span, .howmuch {
+        p, h2, span, .howmuch {
             margin: 0 0 0 0;
         }
         
-        h4 {
+        h2 {
+            font-size: 20px;
             margin-top: 30px;
             &:first-of-type{
                 margin-top: 0;
@@ -324,6 +333,7 @@ h1{
             height: 30px;
             // margin-left: 30px;
             font-family: 'Merienda', cursive;
+            font-display: swap;
             font-size: 1em;
             cursor: pointer;
         }
@@ -335,6 +345,7 @@ h1{
             font-size: 1em;
             padding-left: 10px;
             font-family: 'Merienda', cursive;
+            font-display: swap;
             &::-webkit-outer-spin-button{
                 cursor: pointer;
             }
@@ -370,7 +381,7 @@ h1{
                 text-align: left;
                 margin-left: 30px;
 
-                h4, span{
+                h2, span{
                     margin: 0;
                 }
 
@@ -426,6 +437,9 @@ h1{
             background-color: #f3e9f1;
             border: 1px solid grey;
             margin-bottom: 20px;
+            @media screen and (max-width: 1100px) {
+                height: 120px;
+            }
 
             @media screen and (max-width: 900px) {
                 flex-direction: column;
@@ -481,12 +495,12 @@ h1{
                     @media screen and (max-width: 900px) {
                         padding-bottom: 1em;
                     }
-                    h4, span{
+                    h2, span{
                         font-size: 20px;
                     }
 
-                    h4{
-                        @media screen and (max-width: 900px) {
+                    h2{
+                        @media screen and (max-width: 1100px) {
                             margin-top: 1em;
                             font-size: 15px;
                         }
@@ -496,7 +510,10 @@ h1{
                         }
                     }
                     span{
-                        font-size: 15px;
+                        font-size: 20px;
+                        @media screen and (max-width: 1100px) {
+                            font-size: 15px;
+                        }
                     }
 
                 }
@@ -517,7 +534,7 @@ h1{
                     border: none;
                 }
 
-                h4::after{
+                h2::after{
                     @media screen and (max-width: 900px) {
                         content:' : ';
                     }
@@ -529,8 +546,11 @@ h1{
                     }
                 }
 
-                h4, span{
+                h2, span{
                     font-size: 20px;
+                    @media screen and (max-width: 1100px) {
+                        font-size: 15px;
+                    }
                 }
             }
             .croix{
@@ -547,6 +567,7 @@ h1{
                     color: red;
                     font-weight: bold;
                     font-family: sans-serif;
+                    font-display: swap;
                     width: 25px;
                     height: 25px;
                     line-height: 25px;
@@ -588,7 +609,8 @@ h1{
         border: 1px solid grey;
         border-radius: 10px;
         padding: 0px 20px 20px 0px;
-        h2{
+        h3{
+            font-size: 30px;
             text-align: center;
             color: #5e3869;
         }
@@ -729,12 +751,16 @@ footer{
     justify-content: center;
     @media screen and (max-width: 600px) {
         flex-direction: column;
+        width: 80%;
     }
     .div-footer{
         position: relative;
         width: calc(100% / 3);
         text-align: center;
         border-right: 2px solid grey;
+        h3{
+            font-size: 20px;
+        }
         &:last-of-type{
             border: none;
         }
@@ -896,6 +922,7 @@ footer{
         width: 50px;
         height: 50px;
         font-family: 'Permanent Marker', cursive;
+        font-display: swap;
         font-size: 35px;
         margin: 0;
         text-align: center;
@@ -942,9 +969,7 @@ footer{
         width: 150px;
         animation: panier 7s linear infinite;
       }
-
     }
-  
   }
 
   .anim-none{

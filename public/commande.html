@@ -5,26 +5,28 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Orinoco | Validation commande</title>
-  <link rel="stylesheet" href="./assets/style.css">
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-  <link rel="shortcut icon" href="./img/logo_orinoco.png" type="image/x-icon">
+  <link rel="stylesheet" href="./assets/style.css" defer>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" defer>
+  <link rel="shortcut icon" href="./img/logo_orinoco.png" type="image/x-icon" defer>
+  <script src="./src/functions.js" defer></script>
+  <script src="./src/order.js" defer></script>
 </head>
 <body>
   <header>
-    <a class="lien-accueil" href="index.html">
+    <div class="lien-accueil" href="index.html">
         <picture>
             <source class="petit-logo" media="(max-width:650px)" srcset="img/logo_orinoco.png"> 
-            <img src="img/orinoco.png" alt="logo Orinoco">
+            <img class="lien-accueil" src="img/orinoco.png" alt="logo Orinoco">
         </picture>
-    </a>
+    </div>
     <div class="menu-small">
         <a href="index.html"><i class="fa fa-house-flood"></i></a>
         <a href="panier.html"><i class="fas fa-shopping-cart"></i></a>
     </div>
     <nav>
         <ul class="nav">
-            <li class="header-li"><a href="index.html">Accueil</a></li>
-            <li class="header-li panier active"><a href="panier.html">Mon panier</a></li>
+            <li class="header-li li-accueil">Accueil</li>
+            <li class="header-li li-panier panier">Mon panier</li>
         </ul>
     </nav>
 </header>
@@ -41,11 +43,11 @@
   <footer>
     <div class="div-footer logo">
         <picture>
-            <a href="index.html"><img src="img/orinoco.png" alt="logo_orinoco"></a>
+            <img class="lien-accueil-footer" src="img/orinoco.png" alt="logo_orinoco"></a>
         </picture>
     </div>
     <div class="div-footer contact">
-        <h4>Orinoco | Nous contacter</h4>
+        <h3>Orinoco | Nous contacter</h3>
         <span>36 Avenue du site web</span><br>
         <span>14660 Remote</span>
         <address>
@@ -54,12 +56,10 @@
         </address>
     </div>
     <div class="div-footer menu">
-        <h4>Navigation</h4>
+        <h3>Navigation</h3>
         <a href="index.html">Accueil</a><br>
         <a href="panier.html" class="quant_panier">Mon panier</a>
     </div>
 </footer>
-  <script src="./src/functions.js"></script>
-<script src="./src/order.js"></script>
 </body>
 </html>

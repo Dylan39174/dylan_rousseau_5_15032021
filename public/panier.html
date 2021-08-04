@@ -4,29 +4,34 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./assets/style.css">
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <link rel="shortcut icon" href="./img/logo_orinoco.png" type="image/x-icon">
+  <link rel="stylesheet" href="./assets/style.css" defer>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" defer>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" defer>
+  <link rel="shortcut icon" href="./img/logo_orinoco.png" type="image/x-icon" defer>
+  <link rel="preconnect" href="https://geo.api.gouv.fr/communes/" defer>
+  <script src="./src/functions.js" defer></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+  <script src="./src/class.js" defer></script>
+  <script src="./src/panier.js" defer></script>
   <title>Orinoco | Mon panier</title>
 </head>
 <body>
   <header>
-    <a class="lien-accueil" href="index.html">
+    <div class="lien-accueil">
         <picture>
             <source class="petit-logo" media="(max-width:650px)" srcset="img/logo_orinoco.png"> 
             <img src="img/orinoco.png" alt="logo Orinoco">
         </picture>
-    </a>
+    </div>
     <div class="menu-small">
         <a href="index.html"><i class="fa fa-house-flood"></i></a>
         <a href="panier.html"><i class="fas fa-shopping-cart"></i></a>
     </div>
     <nav>
-        <ul class="nav">
-            <li class="header-li accueil"><a href="index.html">Accueil</a></li>
-            <li class="header-li panier active"><a href="panier.html">Mon panier</a></li>
-        </ul>
+      <ul class="nav">
+        <li class="header-li li-accueil">Accueil</li>
+        <li class="header-li li-panier panier active">Mon panier</li>
+      </ul>
     </nav>
 </header>
   <h1>Mon panier</h1>
@@ -38,14 +43,14 @@
       <span class="prix_total_panier">0€</span>
     </div>
     <form id="form" method="POST" data-aos="fade-up">
-      <h2>Formulaire de commande</h2>
+      <h3>Formulaire de commande</h3>
       <input type="text" name="firstname" placeholder="Prénom" autocomplete="off" onkeypress="verifierCaracteres(event); return false;"><br>
       <input type="text" name="lastname" placeholder="Nom" autocomplete="off" onkeypress="verifierCaracteres(event); return false;"><br>
       <input class="adress" type="text" name="adress" placeholder="Adresse" autocomplete="off"><br>
-      <input type="text" minlength="4" maxlength="5" class="code_postal" name="code_postal" placeholder="Code postal" autocomplete="off" onkeypress="verifierCaracteres(event, 1); return false;" onblur="search_city()">
+      <input type="text" minlength="4" maxlength="5" class="code_postal" name="code_postal" placeholder="Code postal" autocomplete="off" onkeypress="verifierCaracteres(event, 1); return false;" onblur="searchCity()"><br>
       <select name="city" class="ville">
         <option value="Ville">Ville</option>
-      </select>
+      </select><br>
       <input id="mail" type="email" name="email" placeholder="Adresse mail" autocomplete="off">
       <div class="validation">
       <span class="bouton">Passer la commande</span>
@@ -70,11 +75,11 @@
   <footer>
     <div class="div-footer logo">
         <picture>
-            <a href="index.html"><img src="img/orinoco.png" alt="logo_orinoco"></a>
+          <img class="lien-accueil-footer" src="img/orinoco.png" alt="logo_orinoco">
         </picture>
     </div>
     <div class="div-footer contact">
-        <h4>Orinoco | Nous contacter</h4>
+        <h3>Orinoco | Nous contacter</h3>
         <span>36 Avenue du site web</span><br>
         <span>14660 Remote</span>
         <address>
@@ -83,15 +88,10 @@
         </address>
     </div>
     <div class="div-footer menu">
-      <h4>Navigation</h4>
+      <h3>Navigation</h3>
       <a href="index.html">Accueil</a><br>
       <a href="panier.html" class="quant_panier">Mon panier</a>
   </div>
 </footer>
-  <script src="./src/functions.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="./src/class.js"></script>
-  <script src="./src/panier.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 </body>
 </html>

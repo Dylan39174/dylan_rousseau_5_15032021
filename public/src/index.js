@@ -1,5 +1,6 @@
 getAllProducts();
-display_quant_product();
+displayQuantProduct();
+
 AOS.init();
 
 

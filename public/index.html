@@ -4,29 +4,35 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./assets/style.css">
-        <link rel="shortcut icon" href="./img/logo_orinoco.png" type="image/x-icon">
-        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-        <link rel="stylesheet" href="./assets/hover-min.css">
+        <meta name="description" content="Orinoco, votre site d'achat en ligne d'appareil photo de tout genre !">
+        <meta name="robots" content="noindex">
+        <link rel="stylesheet" href="./assets/style.css" defer>
+        <link rel="shortcut icon" href="./img/logo_orinoco.png" type="image/x-icon" defer>
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" defer>
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" defer>
+        <link rel="stylesheet" href="./assets/hover-min.css" defer>
+        <link rel="preconnect" href="http://localhost:3000/api/cameras" defer>
+        <script src="./src/functions.js" defer></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+        <script src="./src/index.js" defer></script>
         <title>Orinoco | Accueil</title>
     </head>
     <body>
         <header>
-            <a class="lien-accueil" href="index.html">
+            <div class="lien-accueil">
                 <picture>
-                    <source class="petit-logo" media="(max-width:650px)" srcset="img/logo_orinoco.png"> 
+                    <source class="petit-logo" media="(max-width:650px)" srcset="img/logo_orinoco.png" alt="logo orinoco"> 
                     <img src="img/orinoco.png" alt="logo Orinoco">
                 </picture>
-            </a>
+            </div>
             <div class="menu-small">
-                <a href="index.html"><i class="fa fa-house-flood"></i></a>
-                <a href="panier.html"><i class="fas fa-shopping-cart"></i></a>
+                <i class="fa fa-house-flood"></i>
+                <i class="fas fa-shopping-cart"></i>
             </div>
             <nav>
                 <ul class="nav">
-                    <li class="header-li active"><a href="index.html">Accueil</a></li>
-                    <li class="header-li panier"><a href="panier.html">Mon panier</a></li>
+                    <li class="header-li li-accueil active">Accueil</li>
+                    <li class="header-li li-panier panier">Mon panier</li>
                 </ul>
             </nav>
         </header>
@@ -34,18 +40,17 @@
             <h1>Produits disponibles</h1>
             <div class="produits">
                 <ul id="items">
-                    
                 </ul>
             </div>
         </main>
         <footer>
             <div class="div-footer logo">
                 <picture>
-                    <a href="index.html"><img src="img/orinoco.png" alt="logo_orinoco"></a>
+                    <img class="lien-accueil-footer" src="img/orinoco.png" alt="logo_orinoco">
                 </picture>
             </div>
             <div class="div-footer contact">
-                <h4>Orinoco | Nous contacter</h4>
+                <h3>Orinoco | Nous contacter</h3>
                 <span>36 Avenue du site web</span><br>
                 <span>14660 Remote</span>
                 <address>
@@ -55,13 +60,10 @@
                 
             </div>
             <div class="div-footer menu">
-                <h4>Navigation</h4>
+                <h3>Navigation</h3>
                 <a href="index.html">Accueil</a><br>
                 <a href="panier.html" class="quant_panier">Mon panier</a>
             </div>
         </footer>
-        <script src="./src/functions.js"></script>
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script src="./src/index.js"></script>
     </body>
 </html>
