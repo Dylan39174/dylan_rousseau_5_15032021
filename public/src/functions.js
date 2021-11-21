@@ -126,7 +126,7 @@ function searchCity(){
       }
     })
     .catch((err) => {
-      alert(err)
+      alert(err);
     })
 }
 
@@ -147,6 +147,7 @@ function getAllProducts(){
 
 function displayAllProducts(data){
   for(var i = 0 ; i < data.length ; i++){
+    console.log(data);
     var li = document.createElement('li');
     var picture = document.createElement('picture');
     var img = document.createElement('img');
@@ -195,7 +196,6 @@ function displayOneProduct(id){
       document.querySelector('.howmuch').setAttribute('onchange', 'calculationsPrice(' + data.price + ')');
       localStorage.removeItem('selection_product');
   })
-  
 }
 
 function displayBasket(){
@@ -314,9 +314,6 @@ function validateForm(){
     if(!inputs[i].value){
       erreur = 'Veuillez renseigner tous les champs';
     }
-  }
-  if(localStorage.length == 0){
-    erreur = 'Votre panier est vide!';
   }
   if(erreur){
     document.querySelector('.erreur').innerHTML = erreur;

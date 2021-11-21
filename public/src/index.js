@@ -1,6 +1,5 @@
 getAllProducts();
 displayQuantProduct();
-
 AOS.init();
 
 
